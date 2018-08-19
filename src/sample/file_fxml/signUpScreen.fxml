@@ -24,7 +24,7 @@
                         <Font name="Comic Sans MS" size="28.0" />
                     </font>
                 </Label>
-                <Button fx:id="loginSignUp" layoutX="439.0" layoutY="256.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="123.0" style="-fx-background-color: #F39C63;" text="Sign Up" textFill="WHITE">
+                <Button fx:id="loginSignUp" layoutX="445.0" layoutY="251.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="123.0" style="-fx-background-color: #F39C63;" text="Sign Up" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="23.0" />
                     </font>
@@ -61,5 +61,10 @@
                 <Font name="Comic Sans MS Bold" size="35.0" />
             </font>
         </Label>
+      <Button fx:id="backButton" layoutX="442.0" layoutY="14.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="123.0" style="-fx-background-color: #F39C63;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

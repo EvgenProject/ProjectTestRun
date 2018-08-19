@@ -2,6 +2,7 @@ package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import sample.Constants;
 import sample.database.DatabaseHandler;
 import sample.User;
 
@@ -28,10 +29,18 @@ public class ControllerSignUp extends Controller{
     private RadioButton Female;
 
     @FXML
+    private Button backButton;
+
+    @FXML
     void initialize(){
 
+        // method create new user by press button "Sign Up"
         loginSignUp.setOnAction(event -> {
             signUpNewUser();
+        });
+
+        backButton.setOnAction(event -> {
+            openWindow(backButton, Constants.LOGIN_SCREEN);
         });
     }
 
@@ -50,7 +59,7 @@ public class ControllerSignUp extends Controller{
         User user = new User(loginName, password, gender);
 
         dbHandler.signUpUser(user);
-        openMainWindow(loginSignUp, MAIN_WINDOW);
+        openWindow(loginSignUp, MAIN_WINDOW);
     }
 
     private String validLogin(String login){

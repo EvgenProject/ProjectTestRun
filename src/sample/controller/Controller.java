@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public abstract class Controller {
 
-    public void openMainWindow(Button buttonAction, String mainWindow){
+    public void openWindow(Button buttonAction, String mainWindow){
         buttonAction.getScene().getWindow().hide();
 
         FXMLLoader loader = new FXMLLoader();

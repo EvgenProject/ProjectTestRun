@@ -56,7 +56,7 @@ public class ControllerLoginScreen extends Controller{
         });
 
         registerButton.setOnAction( event ->  {
-            openMainWindow(registerButton, SIGN_UP_WINDOW);
+            openWindow(registerButton, SIGN_UP_WINDOW);
         });
     }
 
@@ -81,7 +81,7 @@ public class ControllerLoginScreen extends Controller{
         }
 
         if(counter >= 1){
-            openMainWindow(registerButton, MAIN_WINDOW);
+            openWindow(registerButton, MAIN_WINDOW);
         }
     }
 }
