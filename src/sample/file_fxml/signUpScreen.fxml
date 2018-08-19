@@ -46,12 +46,12 @@
             </Label>
             <HBox alignment="CENTER_LEFT" layoutX="134.0" layoutY="212.0" prefHeight="39.0" prefWidth="164.0" spacing="5.0">
                <children>
-                  <RadioButton fx:id="male" mnemonicParsing="false" prefHeight="22.0" prefWidth="65.0" selected="true" text="Male" textFill="#514f4f">
+                  <RadioButton fx:id="Male" mnemonicParsing="false" prefHeight="22.0" prefWidth="65.0" selected="true" text="Male" textFill="#514f4f">
                      <toggleGroup>
                         <ToggleGroup fx:id="gender" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="female" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" text="Female" textFill="#514f4f" toggleGroup="$gender" />
+                  <RadioButton fx:id="Female" mnemonicParsing="false" prefHeight="24.0" prefWidth="59.0" text="Female" textFill="#514f4f" toggleGroup="$gender" />
                </children>
             </HBox>
             </children>
