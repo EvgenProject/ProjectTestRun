@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="550.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ControllerMainWindow">
+   <children>
+      <AnchorPane layoutY="71.0" prefHeight="489.0" prefWidth="550.0" style="-fx-background-color: #fafafa;">
+         <children>
+            <TableView layoutX="31.0" layoutY="32.0" prefHeight="400.0" prefWidth="275.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Date" />
+                <TableColumn prefWidth="108.0" text=" Spend Time (min)" />
+                  <TableColumn prefWidth="91.0" text="Distnace (km)" />
+              </columns>
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="26.0" layoutY="21.0" text="iRanner" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
