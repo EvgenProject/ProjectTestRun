@@ -7,5 +7,5 @@ public class Configs {
     protected String dbPass = "12345";
     protected String dbName = "db_irunner";
     protected String dbTimeZone = "autoReconnect=true&useSSL=false&useUnicode=" +
-            "true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+            "true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; //check
 }
