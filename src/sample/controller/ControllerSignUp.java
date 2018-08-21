@@ -2,11 +2,10 @@ package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import sample.Constants;
 import sample.database.DatabaseHandler;
 import sample.User;
+import static sample.Constants.*;
 
-import static sample.Constants.MAIN_WINDOW;
 
 public class ControllerSignUp extends Controller{
 
@@ -34,13 +33,13 @@ public class ControllerSignUp extends Controller{
     @FXML
     void initialize(){
 
-        // method create new user by press button "Sign Up"
+        // to call method create new user by press button "Sign Up"
         loginSignUp.setOnAction(event -> {
             signUpNewUser();
         });
-
+        // method returns to LoginScreen window
         backButton.setOnAction(event -> {
-            openWindow(backButton, Constants.LOGIN_SCREEN);
+            openWindow(backButton, LOGIN_SCREEN, TITLE_LOGIN_SCREEN);
         });
     }
 
@@ -49,22 +48,15 @@ public class ControllerSignUp extends Controller{
         DatabaseHandler dbHandler = new DatabaseHandler();
         String loginName = newUserNameField.getText();
         String password = newPasswordField.getText();
-        String gender = "";
-
-        if(Male.isSelected())
-            gender = Male.getText();
-        else
-            gender = Female.getText();
+        String gender = (Male.isSelected()) ? Male.getText() : Female.getText();
 
         User user = new User(loginName, password, gender);
-
         dbHandler.signUpUser(user);
-        openWindow(loginSignUp, MAIN_WINDOW);
+        openWindow(loginSignUp, MAIN_WINDOW, TITLE_MAIN_WINDOW);
     }
 
-    private String validLogin(String login){
-
-        return login;
+    private boolean isPasswordMatch(PasswordField newPassword, PasswordField confirmPassword){
+        return newPassword.getText().trim().equals(confirmPassword.getText().trim());
     }
 }
 

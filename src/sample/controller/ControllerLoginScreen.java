@@ -1,19 +1,14 @@
 package sample.controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import sample.User;
 import sample.database.DatabaseHandler;
 
@@ -56,7 +51,7 @@ public class ControllerLoginScreen extends Controller{
         });
 
         registerButton.setOnAction( event ->  {
-            openWindow(registerButton, SIGN_UP_WINDOW);
+            openWindow(registerButton, SIGN_UP_WINDOW, TITLE_SIGN_UP_WINDOW);
         });
     }
 
@@ -70,10 +65,6 @@ public class ControllerLoginScreen extends Controller{
 
         try{
             while(result.next()){
-                String loginname = result.getString("loginname");
-                String password = result.getString("password");
-                String gender = result.getString("gender");
-                System.out.println(loginname + " " + password + " " + gender);
                 counter++;
             }
         }catch (SQLException e){
@@ -81,7 +72,7 @@ public class ControllerLoginScreen extends Controller{
         }
 
         if(counter >= 1){
-            openWindow(registerButton, MAIN_WINDOW);
+            openWindow(registerButton, MAIN_WINDOW, TITLE_MAIN_WINDOW);
         }
     }
 }

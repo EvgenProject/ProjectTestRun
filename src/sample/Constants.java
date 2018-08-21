@@ -10,4 +10,7 @@ public class Constants {
     public static final String LOGIN_SCREEN = "/sample/file_fxml/loginScreen.fxml";
     public static final String SIGN_UP_WINDOW = "/sample/file_fxml/signUpScreen.fxml";
     public static final String MAIN_WINDOW = "/sample/file_fxml/mainWindow.fxml";
+    public static final String TITLE_LOGIN_SCREEN = "iRunner - Authentication";
+    public static final String TITLE_SIGN_UP_WINDOW = "iRunner - Sign Up";
+    public static final String TITLE_MAIN_WINDOW = "iRunner - your results";
 }

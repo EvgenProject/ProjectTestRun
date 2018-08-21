@@ -5,13 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import static sample.Constants.*;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource(Constants.LOGIN_SCREEN));
-        primaryStage.setTitle("iRunner");
+        Parent root = FXMLLoader.load(getClass().getResource(LOGIN_SCREEN));
+        primaryStage.setTitle(TITLE_LOGIN_SCREEN);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
