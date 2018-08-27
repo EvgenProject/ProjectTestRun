@@ -11,8 +11,6 @@ public class ControllerMainWindow extends Controller{
 
     @FXML
     void initialize() {
-        buttonLogOut.setOnAction(event -> {
-            openWindow(buttonLogOut, LOGIN_SCREEN, TITLE_LOGIN_SCREEN);
-        });
+        buttonLogOut.setOnAction(event -> openWindow(buttonLogOut, LOGIN_SCREEN, TITLE_LOGIN_SCREEN));
     }
 }

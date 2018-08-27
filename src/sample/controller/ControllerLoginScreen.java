@@ -43,16 +43,14 @@ public class ControllerLoginScreen extends Controller{
         loginAuthButton.setOnAction( event -> {
             String userName = userNameField.getText().trim();
             String userPassword = passwordField.getText().trim();
-            
-            if(!userName.equals("") || !userPassword.equals(""))
+
+            if(!checkIsEmpty(userNameField) || !checkIsEmpty(passwordField))
                 loginUser(userName, userPassword);
 
             else System.out.println("Login or password is empty");
         });
 
-        registerButton.setOnAction( event ->  {
-            openWindow(registerButton, SIGN_UP_WINDOW, TITLE_SIGN_UP_WINDOW);
-        });
+        registerButton.setOnAction( event -> openWindow(registerButton, SIGN_UP_WINDOW, TITLE_SIGN_UP_WINDOW));
     }
 
     private void loginUser(String userName, String userPassword) {

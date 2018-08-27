@@ -34,13 +34,9 @@ public class ControllerSignUp extends Controller{
     void initialize(){
 
         // to call method create new user by press button "Sign Up"
-        loginSignUp.setOnAction(event -> {
-            signUpNewUser();
-        });
+        loginSignUp.setOnAction(event -> signUpNewUser());
         // method returns to LoginScreen window
-        backButton.setOnAction(event -> {
-            openWindow(backButton, LOGIN_SCREEN, TITLE_LOGIN_SCREEN);
-        });
+        backButton.setOnAction(event -> openWindow(backButton, LOGIN_SCREEN, TITLE_LOGIN_SCREEN));
     }
 
     private void signUpNewUser() {

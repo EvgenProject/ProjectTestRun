@@ -2,22 +2,30 @@ package sample.database;
 
 import sample.User;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.ResultSet;
+import java.sql.*;
 
 import static sample.Constants.*;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
-    public Connection getDbConnection() throws ClassNotFoundException, SQLException{
+    /*public Connection getDbConnection() throws ClassNotFoundException, SQLException{
         String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName + "?" + dbTimeZone;
 
         Class.forName("com.mysql.jdbc.Driver");
         dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
+        return dbConnection;
+    }*/
+
+    public Connection getDbConnection(){
+        try{
+            Class.forName("org.sqlite.JDBC");
+            dbConnection = DriverManager.getConnection("jdbc:sqlite:users.db");
+            System.out.println("Connected!");
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         return dbConnection;
     }
 
@@ -30,9 +38,10 @@ public class DatabaseHandler extends Configs {
             prSt.setString(2,  user.getPassword());
             prSt.setString(3,  user.getGender());
             prSt.executeUpdate();
+            //Statement statement = getDbConnection().createStatement();
+            //statement.executeUpdate(insert);
+
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -46,13 +55,9 @@ public class DatabaseHandler extends Configs {
             prSt.setString(1,  user.getLoginName());
             prSt.setString(2,  user.getPassword());
             resSet = prSt.executeQuery();
-
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
-
         return resSet;
     }
 }

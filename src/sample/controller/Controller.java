@@ -16,7 +16,6 @@ public abstract class Controller {
 
         Stage stage = (Stage) buttonAction.getScene().getWindow();
         stage.close();
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(window));
         Parent root1 = null;
         try {
@@ -24,7 +23,6 @@ public abstract class Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(title);
@@ -32,13 +30,10 @@ public abstract class Controller {
         stage.show();
     }
 
-    protected static void checkIsEmpty(TextField field){
+    protected static boolean checkIsEmpty(TextField field){
 
-        if (field.getText().trim().isEmpty()) {
-            System.out.println( "Login is empty");
-        }
-        else {
-            System.out.println( "Login is not empty");
-        }
+        if (field.getText().trim().isEmpty()) return true;
+
+        return false;
     }
 }
