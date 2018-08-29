@@ -7,8 +7,9 @@ import java.sql.*;
 import static sample.Constants.*;
 
 public class DatabaseHandler extends Configs {
-    Connection dbConnection;
 
+    static Connection dbConnection = null;
+    static Statement statement = null;
     /*public Connection getDbConnection() throws ClassNotFoundException, SQLException{
         String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName + "?" + dbTimeZone;
 
@@ -17,7 +18,7 @@ public class DatabaseHandler extends Configs {
         return dbConnection;
     }*/
 
-    public Connection getDbConnection(){
+    public static Connection getDbConnection(){
         try{
             Class.forName("org.sqlite.JDBC");
             dbConnection = DriverManager.getConnection("jdbc:sqlite:users.db");
@@ -27,6 +28,38 @@ public class DatabaseHandler extends Configs {
             System.out.println(e.getMessage());
         }
         return dbConnection;
+    }
+
+    private static void closeConnection() {
+
+        try{
+            if (statement != null) statement.close();
+
+            if (dbConnection != null) dbConnection.close();
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void createTables(String nameTable){
+
+        String newTable = "CREATE TABLE IF NOT EXISTS " + nameTable +
+                "( iduser INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "loginname VARCHAR(50)," +
+                "password VARCHAR(50)," +
+                "gender VARCHAR(10));";
+        try {
+            dbConnection = getDbConnection();
+            statement = dbConnection.createStatement();
+
+            statement.execute(newTable);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            closeConnection();
+        }
     }
 
     public void signUpUser(User user){
@@ -41,8 +74,12 @@ public class DatabaseHandler extends Configs {
             //Statement statement = getDbConnection().createStatement();
             //statement.executeUpdate(insert);
 
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
+        }
+        finally {
+            closeConnection();
         }
     }
 
@@ -55,8 +92,15 @@ public class DatabaseHandler extends Configs {
             prSt.setString(1,  user.getLoginName());
             prSt.setString(2,  user.getPassword());
             resSet = prSt.executeQuery();
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            closeConnection();
         }
         return resSet;
     }

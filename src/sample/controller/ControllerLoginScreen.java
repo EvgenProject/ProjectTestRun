@@ -39,7 +39,6 @@ public class ControllerLoginScreen extends Controller{
 
     @FXML
     void initialize() {
-
         loginAuthButton.setOnAction( event -> {
             String userName = userNameField.getText().trim();
             String userPassword = passwordField.getText().trim();

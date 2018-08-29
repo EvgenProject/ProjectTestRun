@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProjectTest:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/ProjectTest_jar2</output-path>
+    <root id="archive" name="ProjectTest.jar">
+      <element id="module-output" name="ProjectTest" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/sample/sqlite-jdbc-3.23.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

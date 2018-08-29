@@ -13,4 +13,5 @@ public class Constants {
     public static final String TITLE_LOGIN_SCREEN = "iRunner - Authentication";
     public static final String TITLE_SIGN_UP_WINDOW = "iRunner - Sign Up";
     public static final String TITLE_MAIN_WINDOW = "iRunner - your results";
+    public static final String USERS_DB = "users";
 }
