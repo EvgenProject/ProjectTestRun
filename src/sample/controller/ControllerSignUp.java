@@ -52,7 +52,6 @@ public class ControllerSignUp extends Controller{
             openWindow(loginSignUp, MAIN_WINDOW, TITLE_MAIN_WINDOW);
         }
         else{
-            //openWindow(loginSignUp, ALERT_WINDOW, TITLE_WARNING_WINDOW);
             openModalWindow(loginSignUp, ALERT_WINDOW, TITLE_WARNING_WINDOW);
         }
     }

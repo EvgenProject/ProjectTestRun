@@ -63,14 +63,18 @@ public class ControllerLoginScreen extends Controller{
         try{
             while(result.next()){
                 counter++;
+                if(counter >= 1) {
+                    openWindow(registerButton, MAIN_WINDOW, TITLE_MAIN_WINDOW);
+                    break;
+                }
             }
         }catch (SQLException e){
             e.printStackTrace();
         }
 
-        if(counter >= 1){
+        /*if(counter >= 1){
             openWindow(registerButton, MAIN_WINDOW, TITLE_MAIN_WINDOW);
-        }
+        }*/
     }
 }
 

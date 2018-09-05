@@ -48,7 +48,6 @@ public abstract class Controller {
         stage.setTitle(warningMessage);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(buttonAction.getScene().getWindow());
-        //stage.initOwner(((Node)actionEvent.getSource()).getScene().getWindow());
         stage.showAndWait();
     }
 

@@ -10,13 +10,6 @@ public class DatabaseHandler extends Configs {
 
     static Connection dbConnection = null;
     static Statement statement = null;
-    /*public Connection getDbConnection() throws ClassNotFoundException, SQLException{
-        String connectionString = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName + "?" + dbTimeZone;
-
-        Class.forName("com.mysql.jdbc.Driver");
-        dbConnection = DriverManager.getConnection(connectionString, dbUser, dbPass);
-        return dbConnection;
-    }*/
 
     public static Connection getDbConnection(){
         try{
@@ -57,9 +50,6 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        finally {
-            closeConnection();
-        }
     }
 
     public void signUpUser(User user){
@@ -71,12 +61,8 @@ public class DatabaseHandler extends Configs {
             prSt.setString(2,  user.getPassword());
             prSt.setString(3,  user.getGender());
             prSt.executeUpdate();
-            //Statement statement = getDbConnection().createStatement();
-            //statement.executeUpdate(insert);
-
         }
         catch (SQLException e) {
-            closeConnection();
             e.printStackTrace();
         }
         finally {
@@ -95,7 +81,6 @@ public class DatabaseHandler extends Configs {
             resSet = prSt.executeQuery();
         }
         catch (Exception e) {
-            closeConnection();
             e.printStackTrace();
         }
         finally {
