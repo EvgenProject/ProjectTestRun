@@ -41,18 +41,25 @@ public class ControllerSignUp extends Controller{
 
     private void signUpNewUser() {
 
-        DatabaseHandler dbHandler = new DatabaseHandler();
-        String loginName = newUserNameField.getText();
-        String password = newPasswordField.getText();
-        String gender = (Male.isSelected()) ? Male.getText() : Female.getText();
+        if(isPasswordMatch(newPasswordField, confirmPasswordField)) {
+            DatabaseHandler dbHandler = new DatabaseHandler();
+            String loginName = newUserNameField.getText();
+            String password = newPasswordField.getText();
+            String gender = (Male.isSelected()) ? Male.getText() : Female.getText();
 
-        User user = new User(loginName, password, gender);
-        dbHandler.signUpUser(user);
-        openWindow(loginSignUp, MAIN_WINDOW, TITLE_MAIN_WINDOW);
+            User user = new User(loginName, password, gender);
+            dbHandler.signUpUser(user);
+            openWindow(loginSignUp, MAIN_WINDOW, TITLE_MAIN_WINDOW);
+        }
+        else{
+            //openWindow(loginSignUp, ALERT_WINDOW, TITLE_WARNING_WINDOW);
+            openModalWindow(loginSignUp, ALERT_WINDOW, TITLE_WARNING_WINDOW);
+        }
     }
 
     private boolean isPasswordMatch(PasswordField newPassword, PasswordField confirmPassword){
         return newPassword.getText().trim().equals(confirmPassword.getText().trim());
     }
+
 }
 

@@ -30,7 +30,7 @@ public class DatabaseHandler extends Configs {
         return dbConnection;
     }
 
-    private static void closeConnection() {
+    public static void closeConnection() {
 
         try{
             if (statement != null) statement.close();
@@ -76,6 +76,7 @@ public class DatabaseHandler extends Configs {
 
         }
         catch (SQLException e) {
+            closeConnection();
             e.printStackTrace();
         }
         finally {
@@ -93,10 +94,8 @@ public class DatabaseHandler extends Configs {
             prSt.setString(2,  user.getPassword());
             resSet = prSt.executeQuery();
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
         catch (Exception e) {
+            closeConnection();
             e.printStackTrace();
         }
         finally {
